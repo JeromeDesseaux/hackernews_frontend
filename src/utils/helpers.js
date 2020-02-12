@@ -10,6 +10,23 @@
 //     return await response.json();
 // }
 
+const getToken = () => {
+    try {
+        const auth = JSON.parse(localStorage.auth); 
+        return auth.token;
+    } catch (error) {
+        return null;
+    }
+}
+
+const getAuthorizationHeader = () => {
+    const token = getToken();
+    const config = {
+        headers: { Authorization: `Bearer ${token}` }
+    };
+    return config;
+}
+
 const isLoggedIn = () => {
     var loggedIn = false;
     try {
@@ -23,4 +40,4 @@ const isLoggedIn = () => {
     return loggedIn;
 }
 
-export { isLoggedIn };
+export { isLoggedIn, getAuthorizationHeader };

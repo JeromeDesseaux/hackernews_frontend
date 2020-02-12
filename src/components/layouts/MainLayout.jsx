@@ -16,7 +16,7 @@ const MainLayout = (props) => {
     }
 
     return (
-        <Layout className="layout" style={{height:"100vh"}}>
+        <Layout className="layout" style={{height:"100vh", overflow: "auto"}}>
             <Header>
             <div className="logo" />
             <Menu
@@ -32,12 +32,15 @@ const MainLayout = (props) => {
                 }
             </Menu>
             </Header>
-            <Content style={{ padding: '0 50px', margin: '16px 0' }}>
-            <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
+            {/* <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
+                { props.children }
+            </div> */}
+            <div style={{ padding: 24, minHeight: "86vh" }}>
                 { props.children }
             </div>
-            </Content>
-            <Footer style={{ textAlign: 'center' }}>Jérôme Desseaux ©2020</Footer>
+            {/* <Content style={{ padding: '0 50px', margin: '16px 0' }}>
+            </Content> */}
+            <Footer style={{ textAlign: 'center',  bottom:"0" }}>Jérôme Desseaux ©2020</Footer>
 
         </Layout>
     );
